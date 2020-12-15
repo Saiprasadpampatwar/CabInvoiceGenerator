@@ -10,4 +10,12 @@ public class InvoiceGenerator {
         }
         return MINIMUMFARE;
     }
+
+    public double calculateTotalFare(Ride[] rides) {
+        double fare=0.0;
+        for(Ride ride: rides){
+            fare += this.calculateTotalFare(ride.distance,ride.time);
+        }
+        return fare;
+    }
 }
